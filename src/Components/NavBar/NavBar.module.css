@@ -1,0 +1,33 @@
+.Container {
+  height: 15%;
+  width: 100%;
+  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.Logo {
+  height: 100%;
+}
+
+.Nav {
+  list-style: none;
+  display: flex;
+  width: 40%;
+  height: 70%;
+  font-size: 34px;
+}
+
+.Nav li {
+  height: 80%;
+  padding: 0 10px;
+}
+
+.Nav li:active {
+  background-color: black;
+}
+
+.Nav li:hover {
+  color: white;
+}
