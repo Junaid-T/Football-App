@@ -21,7 +21,7 @@ const TableSmall = () => {
   }
 
   return (
-    <div className={classes.Temp}>
+    <div className={classes.Container}>
       <div className={classes.Team}>
         <p className={classes.Rank}>Position</p>
         <p className={classes.Name}>Team</p>

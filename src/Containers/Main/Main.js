@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./Main.module.css";
 import TableFull from "../../Components/Table/TableFull/TableFull";
+import FullStatistics from "../../Components/Scorers/Full Statistics/Full Statistics";
 
 import Fixtures from "../../Components/Fixtures/Fixtures";
 import News from "../../Components/News/News";
@@ -15,6 +16,7 @@ const Main = () => {
       <Table />
       <Scorers />
       <TableFull />
+      <FullStatistics />
     </div>
   );
 };

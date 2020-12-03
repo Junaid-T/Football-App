@@ -1,7 +1,37 @@
-.Temp {
-  height: 35%;
+.Container {
+  height: 40%;
   width: 20%;
-  background-color: black;
   margin-left: 52%;
-  margin-top: -14.8%;
+  margin-top: -17%;
+  font-size: 180%;
+  border: 1px black solid;
+}
+
+.PlayerContainer {
+  margin-top: 1.2%;
+  width: 100%;
+  height: 13%;
+  border-top: 1px grey dashed;
+  padding-top: 1.3%;
+}
+
+.PlayerContainer h4 {
+  width: 70%;
+  margin: 0;
+  font-size: 40%;
+}
+.PlayerContainer h5 {
+  width: 70%;
+  margin: 0;
+  font-size: 40%;
+}
+
+.PlayerContainer div {
+  width: 30%;
+  height: 100%;
+  font-size: 70%;
+
+  position: relative;
+  left: 70%;
+  bottom: 97%;
 }

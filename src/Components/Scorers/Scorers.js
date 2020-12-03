@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import classes from "./Scorers.module.css";
+import { StoreContext } from "../../Contexts/Store";
 
-const scorers = () => {
-  return <div className={classes.Temp}></div>;
+const Scorers = () => {
+  const [, , topScorers, setTopScorers] = useContext(StoreContext);
+  console.log(topScorers);
+
+  const top5 = topScorers.map((player, index) => {
+    while (index < 5) {
+      return (
+        <div className={classes.PlayerContainer} key={player.player_id}>
+          <h4>{player.firstname + " " + player.lastname}</h4>
+          <h5>{player.team_name}</h5>
+          <div>{player.goals.total}</div>
+        </div>
+      );
+    }
+    return null;
+  });
+
+  return (
+    <div className={classes.Container}>
+      Top Scorers
+      {top5}
+    </div>
+  );
 };
 
-export default scorers;
+export default Scorers;

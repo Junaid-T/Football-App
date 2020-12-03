@@ -1,0 +1,55 @@
+.Container {
+  height: 100%;
+  width: 96%;
+  border: 2px black solid;
+  float: right;
+  position: relative;
+  bottom: 82%;
+  right: 2%;
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 1% auto;
+}
+
+.PlayerContainer {
+  display: flex;
+  width: 100%;
+  height: 4.5%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.PlayerContainer h4 {
+  width: 20%;
+  margin: 0;
+}
+.PlayerContainer div {
+  width: 7%;
+}
+
+.HeaderContainer {
+  width: 100%;
+  height: 7%;
+  margin-bottom: 0.5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 100%;
+  border-bottom: 3px solid black;
+}
+
+.HeaderContainer h4 {
+  width: 20%;
+  margin: 0%;
+  font-size: 160%;
+}
+
+.HeaderContainer div {
+  width: 7%;
+}
+
+/*----------------------------*/
+
+.BackgroundGrey {
+  background-color: grey;
+}
