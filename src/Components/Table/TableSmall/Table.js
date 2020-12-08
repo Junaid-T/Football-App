@@ -1,13 +1,13 @@
-import React, { useEffect, useContext, Fragment } from "react";
+import React, { useEffect, useContext } from "react";
 import classes from "./Table.module.css";
 import { StoreContext } from "../../../Contexts/Store";
 
 const TableSmall = () => {
-  const [leagueTable] = useContext(StoreContext);
+  const store = useContext(StoreContext);
   let table = null;
 
-  if (leagueTable) {
-    table = leagueTable.map((team) => {
+  if (store.leagueTable) {
+    table = store.leagueTable.map((team) => {
       return (
         <div key={team.team_id} className={classes.Team}>
           <p className={classes.Rank}>{team.rank}</p>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect, createContext } from "react";
 import axios from "axios";
+import { API_key } from "../SECRETS";
 
 export const StoreContext = createContext();
 
 export const StoreProvider = (props) => {
   const [leagueTable, setLeagueTable] = useState([]);
   const [topScorers, setTopScorers] = useState([]);
+  const [fixtures, setFixtures] = useState([]);
 
   // Get the Standings
   useEffect(() => {
@@ -13,7 +15,7 @@ export const StoreProvider = (props) => {
       method: "GET",
       url: "https://api-football-v1.p.rapidapi.com/v2/leagueTable/2790",
       headers: {
-        "x-rapidapi-key": "a0272a4936mshf37852dcde693bcp1dbf3bjsn0feda5ecaac5",
+        "x-rapidapi-key": `${API_key}`,
       },
     };
 
@@ -39,7 +41,7 @@ export const StoreProvider = (props) => {
       method: "GET",
       url: "https://api-football-v1.p.rapidapi.com/v2/topscorers/2790",
       headers: {
-        "x-rapidapi-key": "a0272a4936mshf37852dcde693bcp1dbf3bjsn0feda5ecaac5",
+        "x-rapidapi-key": `${API_key}`,
       },
     };
 
@@ -57,9 +59,38 @@ export const StoreProvider = (props) => {
     );
   }, []);
 
+  // Get Fixtures
+  useEffect(() => {
+    const fixtureOptions = {
+      method: "GET",
+      url:
+        "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2790/next/10",
+      headers: {
+        "x-rapidapi-key": `${API_key}`,
+      },
+    };
+
+    const getFixtures = async function () {
+      try {
+        const response = await axios.request(fixtureOptions);
+        return response;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getFixtures().then((response) => setFixtures(response.data.api.fixtures));
+  }, []);
+
   return (
     <StoreContext.Provider
-      value={[leagueTable, setLeagueTable, topScorers, setTopScorers]}
+      value={{
+        leagueTable: leagueTable,
+        setLeagueTable: setLeagueTable,
+        topScorers: topScorers,
+        setTopScorers: setTopScorers,
+        fixtures: fixtures,
+      }}
     >
       {props.children}
     </StoreContext.Provider>

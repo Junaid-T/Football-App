@@ -3,9 +3,9 @@ import classes from "./FullStatistics.module.css";
 import { StoreContext } from "../../../Contexts/Store";
 
 const FullStatistics = () => {
-  const [, , topScorers] = useContext(StoreContext);
+  const store = useContext(StoreContext);
 
-  const fullTable = topScorers.map((player) => {
+  const fullTable = store.topScorers.map((player) => {
     return (
       <div className={classes.PlayerContainer} key={player.player_id}>
         <h4>{player.firstname + " " + player.lastname}</h4>
@@ -26,7 +26,7 @@ const FullStatistics = () => {
   });
 
   return (
-    <div class={classes.Container}>
+    <div className={classes.Container}>
       <div className={classes.HeaderContainer}>
         <h4>Name</h4>
         <h4>Team</h4>

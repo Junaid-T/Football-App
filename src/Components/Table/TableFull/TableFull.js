@@ -3,11 +3,11 @@ import classes from "./TableFull.module.css";
 import { StoreContext } from "../../../Contexts/Store";
 
 const TableFull = () => {
-  const [leagueTable] = useContext(StoreContext);
+  const store = useContext(StoreContext);
   let table = null;
 
-  if (leagueTable) {
-    table = leagueTable.map((team) => {
+  if (store.leagueTable) {
+    table = store.leagueTable.map((team) => {
       return (
         <div key={team.team_id} className={classes.Team}>
           <p className={classes.Rank}>{team.rank}</p>

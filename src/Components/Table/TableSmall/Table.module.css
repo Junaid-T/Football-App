@@ -1,10 +1,10 @@
 .Container {
-  height: 82%;
+  height: 90%;
   width: 20%;
   border: 2px black solid;
   float: right;
   position: relative;
-  bottom: 82%;
+  bottom: 97%;
   right: 2%;
   box-sizing: border-box;
   padding: 0%;

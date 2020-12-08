@@ -3,10 +3,9 @@ import classes from "./Scorers.module.css";
 import { StoreContext } from "../../Contexts/Store";
 
 const Scorers = () => {
-  const [, , topScorers, setTopScorers] = useContext(StoreContext);
-  console.log(topScorers);
+  const store = useContext(StoreContext);
 
-  const top5 = topScorers.map((player, index) => {
+  const top5 = store.topScorers.map((player, index) => {
     while (index < 5) {
       return (
         <div className={classes.PlayerContainer} key={player.player_id}>

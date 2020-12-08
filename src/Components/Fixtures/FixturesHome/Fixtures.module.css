@@ -1,0 +1,28 @@
+.Container {
+  height: 50%;
+  width: 70%;
+  margin-left: 2%;
+  display: flex;
+  overflow-x: scroll;
+}
+
+.Container::-webkit-scrollbar {
+  display: none;
+}
+
+.FixtureContainer {
+  min-width: 20%;
+  max-width: 20%;
+  height: 80%;
+  border: 1px black dashed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 130%;
+}
+
+.TeamLogos {
+  height: 60px;
+  width: 60px;
+  margin: 0 auto;
+}
