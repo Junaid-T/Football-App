@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment, useContext } from "react";
 import classes from "./Player.module.css";
 import axios from "axios";
 import { API_key } from "../../SECRETS";
+import Backdrop from "../../Components/UX/Backdrop/Backdrop";
+import { StoreContext } from "../../Contexts/Store";
 
 const Player = (props) => {
+  const store = useContext(StoreContext);
   const id = "18766";
   const [player, setPlayer] = useState(null);
   // Fetch the player data
@@ -16,19 +19,58 @@ const Player = (props) => {
       },
     };
 
-    const getFixtures = async function () {
+    const getPlayer = async function () {
       try {
         const response = await axios.request(playerOptions);
         console.log(response);
+        return response;
       } catch (error) {
         console.log(error);
       }
     };
 
-    getFixtures().then((response) => setPlayer(response.data.apiplayers[0]));
+    getPlayer().then((response) => setPlayer(response.data.api.players[0]));
   }, []);
 
-  return <div className={classes.Container}></div>;
+  let playerInfo = null;
+  if (player) {
+    playerInfo = (
+      <div>
+        <h3>{player.firstname + " " + player.lastname}</h3>
+        <h4>{player.team_name}</h4>
+        <p>{player.ationaity}</p>
+        <p>{player.height}</p>
+        <p>{player.weight}</p>
+        <p>Played: {player.games.appearences}</p>
+        <p>
+          Goals: {player.goals.total}
+          {player.penalty.success ? "(" + player.penalty.success + ")" : null}
+        </p>
+        <p>Assist: {player.goals.assists}</p>
+        <p>
+          Shots: {player.shots.total}
+          {player.shots.total
+            ? "(" +
+              ((player.shots.on / player.shots.total) * 100).toFixed(0) +
+              "%)"
+            : null}
+        </p>
+        <p>Passes: {player.passes.total}</p>
+        <p>Tackles: {player.tackles.total}</p>
+      </div>
+    );
+  }
+
+  const closePopup = () => {
+    store.setPopup(false);
+  };
+
+  return (
+    <Fragment>
+      <Backdrop closePopup={closePopup} />
+      <div className={classes.Container}>{playerInfo}</div>
+    </Fragment>
+  );
 };
 
 export default Player;

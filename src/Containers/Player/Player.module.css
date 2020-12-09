@@ -1,0 +1,9 @@
+.Container {
+  height: 80%;
+  width: 80%;
+  z-index: 20;
+  background-color: grey;
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+}
