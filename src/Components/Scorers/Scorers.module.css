@@ -19,6 +19,10 @@
   width: 70%;
   margin: 0;
   font-size: 40%;
+  cursor: pointer;
+}
+.PlayerContainer h4:hover {
+  text-decoration: underline;
 }
 .PlayerContainer h5 {
   width: 70%;
@@ -30,8 +34,15 @@
   width: 30%;
   height: 100%;
   font-size: 70%;
-
   position: relative;
   left: 70%;
   bottom: 97%;
+}
+
+.Link {
+  text-decoration: none;
+  color: black;
+}
+.Link:hover {
+  text-decoration: underline;
 }

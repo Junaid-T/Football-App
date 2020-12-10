@@ -7,7 +7,7 @@ import { StoreContext } from "../../Contexts/Store";
 
 const Player = (props) => {
   const store = useContext(StoreContext);
-  const id = "18766";
+  const id = store.activePlayer;
   const [player, setPlayer] = useState(null);
   // Fetch the player data
   useEffect(() => {
@@ -30,7 +30,7 @@ const Player = (props) => {
     };
 
     getPlayer().then((response) => setPlayer(response.data.api.players[0]));
-  }, []);
+  }, [id]);
 
   let playerInfo = null;
   if (player) {

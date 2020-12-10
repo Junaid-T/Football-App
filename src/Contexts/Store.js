@@ -6,7 +6,7 @@ export const StoreContext = createContext();
 
 export const StoreProvider = (props) => {
   const [popup, setPopup] = useState(true);
-  const [activeItem, setActiveItem] = useState(true); // USE FOR PLAYER & TEAM - SET THOSE SEPARATE TO POP- REUSE
+  const [activePlayer, setActivePlayer] = useState(null); // USE FOR PLAYER & TEAM - SET THOSE SEPARATE TO POP- REUSE
   const [leagueTable, setLeagueTable] = useState([]);
   const [topScorers, setTopScorers] = useState([]);
   const [fixtures, setFixtures] = useState([]);
@@ -89,6 +89,8 @@ export const StoreProvider = (props) => {
       value={{
         popup: popup,
         setPopup: setPopup,
+        activePlayer: activePlayer,
+        setActivePlayer: setActivePlayer,
         leagueTable: leagueTable,
         setLeagueTable: setLeagueTable,
         topScorers: topScorers,
