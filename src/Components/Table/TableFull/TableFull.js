@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import classes from "./TableFull.module.css";
 import { StoreContext } from "../../../Contexts/Store";
+import { Link } from "react-router-dom";
 
 const TableFull = () => {
   const store = useContext(StoreContext);
@@ -11,7 +12,9 @@ const TableFull = () => {
       return (
         <div key={team.team_id} className={classes.Team}>
           <p className={classes.Rank}>{team.rank}</p>
-          <p className={classes.Name}>{team.teamName}</p>
+          <Link to={`/team/${team.team_id}`} className={classes.Name}>
+            {team.teamName}
+          </Link>
           <p className={classes.Played}>{team.all.matchsPlayed}</p>
           <p className={classes.Played}>{team.all.win}</p>
           <p className={classes.Played}>{team.all.draw}</p>

@@ -63,6 +63,7 @@ const Player = (props) => {
 
   const closePopup = () => {
     store.setPopup(false);
+    store.setActivePlayer(false);
   };
 
   return (

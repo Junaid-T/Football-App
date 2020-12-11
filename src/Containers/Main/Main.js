@@ -9,7 +9,7 @@ import Scorers from "../../Components/Scorers/Scorers";
 const Main = () => {
   return (
     <div className={classes.Container}>
-      <Fixtures />
+      <Fixtures type="Main" data={null} />
       <News />
       <Table />
       <Scorers />

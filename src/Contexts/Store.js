@@ -5,7 +5,7 @@ import { API_key } from "../SECRETS";
 export const StoreContext = createContext();
 
 export const StoreProvider = (props) => {
-  const [popup, setPopup] = useState(true);
+  const [popup, setPopup] = useState(false);
   const [activePlayer, setActivePlayer] = useState(null); // USE FOR PLAYER & TEAM - SET THOSE SEPARATE TO POP- REUSE
   const [leagueTable, setLeagueTable] = useState([]);
   const [topScorers, setTopScorers] = useState([]);

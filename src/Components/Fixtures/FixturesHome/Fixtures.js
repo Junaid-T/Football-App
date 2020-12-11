@@ -2,10 +2,19 @@ import React, { useContext } from "react";
 import classes from "./Fixtures.module.css";
 import { StoreContext } from "../../../Contexts/Store";
 
-const Fixture = () => {
+const Fixture = (props) => {
   const store = useContext(StoreContext);
 
-  const fixturesList = store.fixtures.map((fixture) => {
+  // This allows me to have a different "mode" for fixtures so that I can use it for individual teams.
+  let data;
+  if (props.type === "Main") {
+    data = store.fixtures;
+  } else if (props.type === "Team") {
+    data = props.data;
+  }
+  if (!data) return null;
+
+  const fixturesList = data.map((fixture) => {
     return (
       <div key={fixture.fixture_id} className={classes.FixtureContainer}>
         <img
@@ -24,6 +33,7 @@ const Fixture = () => {
       </div>
     );
   });
+
   return <div className={classes.Container}>{fixturesList}</div>;
 };
 

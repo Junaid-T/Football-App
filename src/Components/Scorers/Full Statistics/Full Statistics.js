@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import classes from "./FullStatistics.module.css";
 import { StoreContext } from "../../../Contexts/Store";
+import { Link } from "react-router-dom";
 
 const FullStatistics = () => {
   const store = useContext(StoreContext);
@@ -9,7 +10,7 @@ const FullStatistics = () => {
     return (
       <div className={classes.PlayerContainer} key={player.player_id}>
         <h4>{player.firstname + " " + player.lastname}</h4>
-        <h4>{player.team_name}</h4>
+        <Link to={`/team/${player.team_id}`}>{player.team_name}</Link>
         <div>{player.goals.total}</div>
         <div>{player.goals.assists ? player.goals.assists : 0}</div>
         <div>{player.games.appearences}</div>

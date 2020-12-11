@@ -22,7 +22,7 @@ const Scorers = () => {
           <h4 onClick={showPlayer}>
             {player.firstname + " " + player.lastname}
           </h4>
-          <Link to="" className={classes.Link}>
+          <Link to={`/team/${player.team_id}`} className={classes.Link}>
             <h5>{player.team_name}</h5>
           </Link>
           <div>{player.goals.total}</div>
