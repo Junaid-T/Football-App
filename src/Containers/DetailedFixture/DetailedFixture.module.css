@@ -1,8 +1,10 @@
 .Container {
-  height: 99%;
-  width: 99%;
+  height: 80%;
+  width: 80%;
+  margin: 2% auto;
   background-color: green;
   border: 2px solid black;
+  overflow: scroll;
 }
 
 .MatchHeader {
@@ -19,8 +21,8 @@
 }
 
 .MatchContent {
-  width: 100%;
-  height: 75%;
+  width: 200%;
+  height: 70%;
   background-color: blue;
   display: flex;
 }

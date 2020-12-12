@@ -102,3 +102,6 @@ export const StoreProvider = (props) => {
     </StoreContext.Provider>
   );
 };
+
+///////////
+/////////// TO SELF - MAYBE COMBINE THE USEEFFECTS

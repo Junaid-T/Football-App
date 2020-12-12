@@ -2,6 +2,9 @@ import React, { useEffect, useState, Fragment } from "react";
 import classes from "./DetailedFixture.module.css";
 import axios from "axios";
 
+import MatchStats from "./MatchStats/MatchStats";
+import MatchLineup from "./MatchLineup/MatchLineup";
+
 const DetailedFixture = (props) => {
   const [data, setData] = useState(null);
   let display = null;
@@ -10,7 +13,7 @@ const DetailedFixture = (props) => {
       method: "GET",
       url:
         // Need to make dynamic afterwards using props.fixture_id
-        `https://api-football-v1.p.rapidapi.com/v2/fixtures/id/${592257}`,
+        `https://api-football-v1.p.rapidapi.com/v2/fixtures/id/${592258}`,
       headers: {
         "x-rapidapi-key": "a0272a4936mshf37852dcde693bcp1dbf3bjsn0feda5ecaac5",
       },
@@ -33,12 +36,18 @@ const DetailedFixture = (props) => {
       <Fragment>
         <div className={classes.MatchHeader}>
           <img src={data.homeTeam.logo} alt="Home team logo" />
-          <h2>0 - 0</h2>
+          <h2>
+            {data.goalsHomeTeam} - {data.goalsAwayTeam}
+          </h2>
           <img src={data.awayTeam.logo} alt="Away team logo" />
         </div>
         <div className={classes.MatchContent}>
-          <div className={classes.LineupContainer}></div>
-          <div className={classes.StatsContainer}></div>
+          <div className={classes.StatsContainer}>
+            <MatchStats data={data} />
+          </div>
+          <div className={classes.LineupContainer}>
+            <MatchLineup data={data} />
+          </div>
         </div>
       </Fragment>
     );

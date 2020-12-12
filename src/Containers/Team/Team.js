@@ -8,8 +8,9 @@ import { API_key } from "../../SECRETS";
 const Team = (props) => {
   const [fixtures, setFixtures] = useState(null);
   const number = 10;
-  //const team_id = props.team_id
   const team_id = props.match.params.id;
+  const teamLogo = `https://media.api-sports.io/football/teams/${team_id}.png`;
+
   useEffect(() => {
     const teamFixtureOptions = {
       method: "GET",
@@ -19,16 +20,17 @@ const Team = (props) => {
       },
     };
 
-    const getLeague = async function () {
+    const getFixtures = async function () {
       try {
         const response = await axios.request(teamFixtureOptions);
+        console.log(response);
         return response;
       } catch (error) {
         console.log(error);
       }
     };
 
-    getLeague().then((response) => setFixtures(response.data.api.fixtures));
+    getFixtures().then((response) => setFixtures(response.data.api.fixtures));
     /////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////
   }, [team_id]);
@@ -36,7 +38,7 @@ const Team = (props) => {
   return (
     <div className={classes.Container}>
       <h2>%TEAM NAME%</h2>
-      <div>%LOGO%</div>
+      <img src={teamLogo} alt="Team Logo" />
       <div>%SQUAD LINK%</div>
       <Fixtures type="Team" data={fixtures} />
       <div className={classes.TableContainer}>
