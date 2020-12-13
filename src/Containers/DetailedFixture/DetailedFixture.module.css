@@ -19,21 +19,56 @@
 .MatchHeader h2 {
   padding: 0 5%;
 }
+/*-------------------------------------------------*/
 
+.Buttons {
+  width: 10%;
+  height: 5%;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  top: 3%;
+}
+
+.LineupButton {
+  height: 100%;
+  width: 50%;
+  background-color: black;
+}
+.LineupButton:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+.StatsButton {
+  height: 100%;
+  width: 50%;
+  background-color: wheat;
+}
+.StatsButton:hover {
+  cursor: pointer;
+  background-color: yellow;
+}
+
+.Checkbox {
+}
+
+/*-------------------------------------------------*/
 .MatchContent {
   width: 200%;
-  height: 70%;
-  background-color: blue;
+  height: 73%;
   display: flex;
 }
 
 .LineupContainer {
   height: 100%;
   width: 50%;
-  background-color: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
+
 .StatsContainer {
   height: 100%;
   width: 50%;
-  background-color: teal;
 }

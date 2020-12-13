@@ -1,0 +1,21 @@
+.TeamContainer {
+  width: 17%;
+  list-style: none;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1.5vw;
+  align-items: flex-start;
+}
+
+.Player {
+  border-bottom: 2px solid grey;
+  width: 100%;
+  text-align: left;
+}
+
+.Shirt {
+  height: 18px;
+  width: 18px;
+}

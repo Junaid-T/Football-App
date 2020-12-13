@@ -1,0 +1,21 @@
+.Stat {
+  height: 16%;
+  margin-bottom: 0.5%;
+  border-bottom: 2px solid grey;
+}
+
+.Stat h4 {
+  margin: 0.2%;
+}
+
+.StatBar {
+  background-color: blue;
+  width: 50%;
+  height: 25%;
+  margin: 0 auto;
+}
+
+.StatBar2 {
+  height: 100%;
+  background-color: red;
+}

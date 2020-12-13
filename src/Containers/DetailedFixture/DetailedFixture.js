@@ -31,6 +31,10 @@ const DetailedFixture = (props) => {
     getFixture().then((response) => setData(response.data.api.fixtures[0]));
   }, []);
 
+  const handleClick = (e) => {
+    if (e.target.classList.contains("active")) return;
+  };
+
   if (data) {
     display = (
       <Fragment>
@@ -41,6 +45,27 @@ const DetailedFixture = (props) => {
           </h2>
           <img src={data.awayTeam.logo} alt="Away team logo" />
         </div>
+        <form className={classes.Buttons}>
+          <label for="StatsButton" onClick={handleClick}>
+            STATS
+            <input
+              name="mode"
+              type="radio"
+              id="StatsButton"
+              className={classes.Checkbox}
+              checked
+            ></input>
+          </label>
+          <label for="LineupButton" onClick={handleClick}>
+            LINEUP
+            <input
+              name="mode"
+              type="radio"
+              id="LineupButton"
+              className={classes.Checkbox}
+            ></input>
+          </label>
+        </form>
         <div className={classes.MatchContent}>
           <div className={classes.StatsContainer}>
             <MatchStats data={data} />

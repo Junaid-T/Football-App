@@ -1,5 +1,8 @@
 import React, { Fragment } from "react";
 import classes from "./MatchLineup.module.css";
+import shirt from "../../../Assets/shirt-outline.svg";
+
+// FIX SHIRT COLOR
 
 const MatchLineup = (props) => {
   const data = props.data;
@@ -10,7 +13,12 @@ const MatchLineup = (props) => {
 
     const getLineup = (team) => {
       return data.lineups[team].startXI.map((player) => {
-        return <li>{player.player}</li>;
+        return (
+          <li key={player.player_id} className={classes.Player}>
+            <img className={classes.Shirt} src={shirt} alt="Shirt" />
+            {player.player}
+          </li>
+        );
       });
     };
 
@@ -23,8 +31,8 @@ const MatchLineup = (props) => {
 
   return (
     <Fragment>
-      <ul className={classes.HomeTeamContainer}>{lineup("home")}</ul>
-      <ul className={classes.AwayTeamContainer}>{lineup("away")}</ul>
+      <ul className={classes.TeamContainer}>{lineup("home")}</ul>
+      <ul className={classes.TeamContainer}>{lineup("away")}</ul>
     </Fragment>
   );
 };
