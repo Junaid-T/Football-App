@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState, Fragment, useRef } from "react";
 import classes from "./DetailedFixture.module.css";
 import axios from "axios";
 
@@ -7,6 +7,8 @@ import MatchLineup from "./MatchLineup/MatchLineup";
 
 const DetailedFixture = (props) => {
   const [data, setData] = useState(null);
+  //const activeSlide = useRef("Stats");
+  const [activeSlide, setActiveSlide] = useState("Stats");
   let display = null;
   useEffect(() => {
     const fixtureRequest = {
@@ -32,7 +34,14 @@ const DetailedFixture = (props) => {
   }, []);
 
   const handleClick = (e) => {
-    if (e.target.classList.contains("active")) return;
+    if (e.target.id === activeSlide) return;
+    setActiveSlide(activeSlide !== "Stats" ? "Stats" : "Lineup");
+  };
+
+  const setSlide = () => {
+    return activeSlide === "Stats"
+      ? classes.MatchContent
+      : classes.MatchContentLineup;
   };
 
   if (data) {
@@ -45,28 +54,19 @@ const DetailedFixture = (props) => {
           </h2>
           <img src={data.awayTeam.logo} alt="Away team logo" />
         </div>
-        <form className={classes.Buttons}>
-          <label for="StatsButton" onClick={handleClick}>
+        <div className={classes.Buttons}>
+          <div onClick={handleClick} id="Stats" className={classes.StatsButton}>
             STATS
-            <input
-              name="mode"
-              type="radio"
-              id="StatsButton"
-              className={classes.Checkbox}
-              checked
-            ></input>
-          </label>
-          <label for="LineupButton" onClick={handleClick}>
+          </div>
+          <div
+            onClick={handleClick}
+            id="Lineup"
+            className={classes.StatsButton}
+          >
             LINEUP
-            <input
-              name="mode"
-              type="radio"
-              id="LineupButton"
-              className={classes.Checkbox}
-            ></input>
-          </label>
-        </form>
-        <div className={classes.MatchContent}>
+          </div>
+        </div>
+        <div className={setSlide()}>
           <div className={classes.StatsContainer}>
             <MatchStats data={data} />
           </div>

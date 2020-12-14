@@ -4,12 +4,12 @@
   margin: 2% auto;
   background-color: green;
   border: 2px solid black;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .MatchHeader {
   width: 70%;
-  height: 25%;
+  height: 22%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -22,12 +22,13 @@
 /*-------------------------------------------------*/
 
 .Buttons {
-  width: 10%;
+  width: 20%;
   height: 5%;
   margin: 0 auto;
   display: flex;
   position: relative;
   top: 3%;
+  z-index: 10;
 }
 
 .LineupButton {
@@ -50,14 +51,20 @@
   background-color: yellow;
 }
 
-.Checkbox {
-}
-
 /*-------------------------------------------------*/
 .MatchContent {
   width: 200%;
   height: 73%;
   display: flex;
+  transition: all 0.5s;
+}
+
+.MatchContentLineup {
+  width: 200%;
+  height: 73%;
+  display: flex;
+  transition: all 0.5s;
+  transform: translateX(-50%);
 }
 
 .LineupContainer {
