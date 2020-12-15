@@ -21,6 +21,10 @@ const MatchStats = (props) => {
     );
   };
 
+  if (data.statistics === null) {
+    return <h2>We'll bring you all the live events as they happen</h2>;
+  }
+
   return (
     <Fragment>
       <h4 style={{ marginBottom: "1%" }}>{data.elapsed}'</h4>

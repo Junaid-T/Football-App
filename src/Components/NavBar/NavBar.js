@@ -3,7 +3,7 @@ import classes from "./NavBar.module.css";
 import Logo from "../../Assets/football-outline.svg";
 import { Link } from "react-router-dom";
 
-const navBar = () => {
+const NavBar = () => {
   return (
     <nav className={classes.Container}>
       <img src={Logo} alt="Temp_Logo" className={classes.Logo} />
@@ -11,7 +11,7 @@ const navBar = () => {
         <Link to="/">
           <li>Home</li>
         </Link>
-        <Link to="/">
+        <Link to="/results">
           <li>Results</li>
         </Link>
         <Link to="/table">
@@ -25,4 +25,4 @@ const navBar = () => {
   );
 };
 
-export default navBar;
+export default NavBar;

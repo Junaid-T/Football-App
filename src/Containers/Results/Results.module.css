@@ -1,0 +1,34 @@
+.Container {
+  height: 80%;
+  width: 96%;
+  border: 2px black solid;
+  margin: 1% auto;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Match {
+  height: 8%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  border: 2px solid black;
+}
+
+.Match img {
+  height: 100%;
+}
+
+.Match:hover {
+  cursor: pointer;
+}
+
+.Link {
+  width: 80%;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}

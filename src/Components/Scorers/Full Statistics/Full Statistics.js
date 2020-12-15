@@ -6,10 +6,19 @@ import { Link } from "react-router-dom";
 const FullStatistics = () => {
   const store = useContext(StoreContext);
 
+  const showPlayer = (e) => {
+    store.setPopup(true);
+    store.setActivePlayer(e.target.parentElement.id);
+  };
+
   const fullTable = store.topScorers.map((player) => {
     return (
-      <div className={classes.PlayerContainer} key={player.player_id}>
-        <h4>{player.firstname + " " + player.lastname}</h4>
+      <div
+        className={classes.PlayerContainer}
+        key={player.player_id}
+        id={player.player_id}
+      >
+        <h4 onClick={showPlayer}>{player.firstname + " " + player.lastname}</h4>
         <Link to={`/team/${player.team_id}`}>{player.team_name}</Link>
         <div>{player.goals.total}</div>
         <div>{player.goals.assists ? player.goals.assists : 0}</div>

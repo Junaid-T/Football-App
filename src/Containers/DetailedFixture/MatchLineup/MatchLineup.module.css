@@ -14,8 +14,15 @@
   width: 100%;
   text-align: left;
 }
+.Player:hover {
+  cursor: pointer;
+}
 
 .Shirt {
   height: 18px;
   width: 18px;
+}
+
+.Unreleased {
+  align-self: flex-start;
 }

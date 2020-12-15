@@ -17,6 +17,12 @@
   width: 20%;
   margin: 0;
 }
+
+.PlayerContainer h4:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .PlayerContainer div {
   width: 7%;
 }

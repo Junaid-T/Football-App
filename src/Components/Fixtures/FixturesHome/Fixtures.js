@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import classes from "./Fixtures.module.css";
 import { StoreContext } from "../../../Contexts/Store";
+import { Link } from "react-router-dom";
 
 const Fixture = (props) => {
   const store = useContext(StoreContext);
@@ -22,9 +23,13 @@ const Fixture = (props) => {
           alt={`${fixture.homeTeam.team_name} logo`}
           className={classes.TeamLogos}
         />
-        <div>{fixture.homeTeam.team_name}</div>
-        <div>Vs</div>
-        <div>{fixture.awayTeam.team_name}</div>
+        <Link to={`/fixture/${fixture.fixture_id}`} id={fixture.fixture_id}>
+          {fixture.homeTeam.team_name}
+          <br />
+          Vs
+          <br />
+          {fixture.awayTeam.team_name}
+        </Link>
         <img
           src={fixture.awayTeam.logo}
           alt={`${fixture.awayTeam.team_name} logo`}

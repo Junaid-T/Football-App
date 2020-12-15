@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment, useRef } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import classes from "./DetailedFixture.module.css";
 import axios from "axios";
 
@@ -7,15 +7,16 @@ import MatchLineup from "./MatchLineup/MatchLineup";
 
 const DetailedFixture = (props) => {
   const [data, setData] = useState(null);
-  //const activeSlide = useRef("Stats");
   const [activeSlide, setActiveSlide] = useState("Stats");
+  const id = props.match.params.fixture;
+
   let display = null;
   useEffect(() => {
     const fixtureRequest = {
       method: "GET",
       url:
         // Need to make dynamic afterwards using props.fixture_id
-        `https://api-football-v1.p.rapidapi.com/v2/fixtures/id/${592258}`,
+        `https://api-football-v1.p.rapidapi.com/v2/fixtures/id/${id}`,
       headers: {
         "x-rapidapi-key": "a0272a4936mshf37852dcde693bcp1dbf3bjsn0feda5ecaac5",
       },
@@ -31,7 +32,7 @@ const DetailedFixture = (props) => {
       }
     };
     getFixture().then((response) => setData(response.data.api.fixtures[0]));
-  }, []);
+  }, [id]);
 
   const handleClick = (e) => {
     if (e.target.id === activeSlide) return;

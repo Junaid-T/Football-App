@@ -23,7 +23,6 @@ const Team = (props) => {
     const getFixtures = async function () {
       try {
         const response = await axios.request(teamFixtureOptions);
-        console.log(response);
         return response;
       } catch (error) {
         console.log(error);
@@ -52,4 +51,3 @@ export default Team;
 
 //`https://api-football-v1.p.rapidapi.com/v2/players/squad/{team_id}/`                       +++++++++  squad
 // "https://api-football-v1.p.rapidapi.com/v2/fixtures/team/{team_id}/last/{number}"          +++++++++  results
-// https://api-football-v1.p.rapidapi.com/v2/fixtures/team/{team_id}/next/{number}              +++++++++  next fixtures
