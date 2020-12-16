@@ -38,11 +38,11 @@ const Results = () => {
         <li className={classes.Match} key={match.fixture_id}>
           <img src={match.homeTeam.logo} alt="Home team logo" />
           <Link to={`/fixture/${match.fixture_id}`} className={classes.Link}>
-            <h4>{match.homeTeam.team_name} </h4>
-            <h4>
-              {"--" + match.goalsHomeTeam} - {match.goalsAwayTeam + "--"}
+            <h4 className={classes.TeamName}>{match.homeTeam.team_name}</h4>
+            <h4 className={classes.Scores}>
+              {match.goalsHomeTeam} - {match.goalsAwayTeam}
             </h4>
-            <h4>{match.awayTeam.team_name}</h4>
+            <h4 className={classes.TeamName}>{match.awayTeam.team_name}</h4>
           </Link>
           <img src={match.awayTeam.logo} alt="Away team logo" />
         </li>

@@ -3,7 +3,6 @@
   width: 96%;
   border: 2px black solid;
   margin: 1% auto;
-  overflow: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,8 +26,19 @@
 }
 
 .Link {
-  width: 80%;
+  color: black;
+  width: 70%;
   text-decoration: none;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.Link:hover {
+  background-color: lightgray;
+}
+
+.TeamName {
+  width: 25%;
+  text-align: center;
 }
