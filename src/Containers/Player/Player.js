@@ -22,7 +22,6 @@ const Player = (props) => {
     const getPlayer = async function () {
       try {
         const response = await axios.request(playerOptions);
-        console.log(response);
         return response;
       } catch (error) {
         console.log(error);

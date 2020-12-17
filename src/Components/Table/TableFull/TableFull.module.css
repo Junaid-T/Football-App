@@ -17,18 +17,18 @@
   align-items: center;
 }
 
-.Rank {
+.Rank,
+.Points,
+.Played,
+.Difference {
   width: 12%;
 }
 .Name {
   width: 45%;
+  text-decoration: none;
+  color: black;
 }
-.Played {
-  width: 12%;
-}
-.Difference {
-  width: 12%;
-}
-.Points {
-  width: 12%;
+
+.Name:hover {
+  text-decoration: underline;
 }

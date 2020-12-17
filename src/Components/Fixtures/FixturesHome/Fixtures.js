@@ -15,15 +15,26 @@ const Fixture = (props) => {
   }
   if (!data) return null;
 
+  const formatDate = (date) => {
+    const day = date.slice(0, 10);
+    const data = day.split("-");
+    const newDay = data[2] + "-" + data[1] + "-" + data[0];
+    return newDay;
+  };
+
   const fixturesList = data.map((fixture) => {
     return (
-      <div key={fixture.fixture_id} className={classes.FixtureContainer}>
+      <div key={fixture.fixture_id} className={classes.FixturesContainer}>
         <img
           src={fixture.homeTeam.logo}
           alt={`${fixture.homeTeam.team_name} logo`}
           className={classes.TeamLogos}
         />
-        <Link to={`/fixture/${fixture.fixture_id}`} id={fixture.fixture_id}>
+        <Link
+          to={`/fixture/${fixture.fixture_id}`}
+          id={fixture.fixture_id}
+          className={classes.Fixture}
+        >
           {fixture.homeTeam.team_name}
           <br />
           Vs
@@ -35,6 +46,7 @@ const Fixture = (props) => {
           alt={`${fixture.awayTeam.team_name} logo`}
           className={classes.TeamLogos}
         />
+        <p>{formatDate(fixture.event_date)}</p>
       </div>
     );
   });
@@ -43,7 +55,3 @@ const Fixture = (props) => {
 };
 
 export default Fixture;
-
-// Link each fixture to a full page analysis of it
-// r-r-d to full componant and pass along the id
-// first make that new Componant

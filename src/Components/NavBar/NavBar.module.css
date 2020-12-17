@@ -1,9 +1,9 @@
 .Container {
   height: 15%;
   width: 100%;
-  background-color: blue;
+  background-color: rgb(221, 157, 39);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
 }
 
@@ -14,20 +14,23 @@
 .Nav {
   list-style: none;
   display: flex;
-  width: 40%;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
   height: 70%;
   font-size: 26px;
 }
 
-.Nav li {
-  height: 80%;
-  padding: 0 10px;
+.NavItem {
+  color: black;
+  text-decoration: none;
+  width: 25%;
+  transition: padding 0.4s;
 }
 
-.Nav li:active {
-  background-color: black;
-}
-
-.Nav li:hover {
-  color: white;
+.NavItem:hover {
+  cursor: pointer;
+  border-bottom: 2px solid blue;
+  background-color: rgb(228, 175, 77);
+  padding-bottom: 2%;
 }

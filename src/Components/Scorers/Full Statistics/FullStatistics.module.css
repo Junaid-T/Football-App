@@ -13,6 +13,10 @@
   align-items: center;
 }
 
+.PlayerContainer:hover {
+  background-color: rgb(110, 107, 107);
+}
+
 .PlayerContainer h4 {
   width: 20%;
   margin: 0;
@@ -25,6 +29,16 @@
 
 .PlayerContainer div {
   width: 7%;
+}
+
+.Team {
+  width: 20%;
+  text-decoration: none;
+  color: black;
+}
+
+.Team:hover {
+  text-decoration: underline;
 }
 
 .HeaderContainer {
@@ -46,10 +60,4 @@
 
 .HeaderContainer div {
   width: 7%;
-}
-
-/*----------------------------*/
-
-.BackgroundGrey {
-  background-color: grey;
 }

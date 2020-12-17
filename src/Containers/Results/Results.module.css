@@ -1,7 +1,6 @@
 .Container {
   height: 80%;
   width: 96%;
-  border: 2px black solid;
   margin: 1% auto;
   display: flex;
   flex-direction: column;
@@ -14,7 +13,8 @@
   width: 80%;
   display: flex;
   justify-content: center;
-  border: 2px solid black;
+  margin: 0.3%;
+  border-bottom: 2px dashed grey;
 }
 
 .Match img {

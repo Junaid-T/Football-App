@@ -3,6 +3,7 @@
   width: 70%;
   margin-left: 2%;
   display: flex;
+  align-items: center;
   overflow-x: scroll;
 }
 
@@ -10,10 +11,19 @@
   display: none;
 }
 
-.FixtureContainer {
+.Fixture {
+  text-decoration: none;
+  color: black;
+}
+
+.Fixture:hover {
+  text-decoration: underline;
+}
+
+.FixturesContainer {
   min-width: 20%;
   max-width: 20%;
-  height: 80%;
+  height: 99%;
   border: 1px black dashed;
   display: flex;
   flex-direction: column;

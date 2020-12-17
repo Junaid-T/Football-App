@@ -19,7 +19,9 @@ const FullStatistics = () => {
         id={player.player_id}
       >
         <h4 onClick={showPlayer}>{player.firstname + " " + player.lastname}</h4>
-        <Link to={`/team/${player.team_id}`}>{player.team_name}</Link>
+        <Link to={`/team/${player.team_id}`} className={classes.Team}>
+          {player.team_name}
+        </Link>
         <div>{player.goals.total}</div>
         <div>{player.goals.assists ? player.goals.assists : 0}</div>
         <div>{player.games.appearences}</div>
