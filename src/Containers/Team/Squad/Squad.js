@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import classes from "./Squad.module.css";
 import { API_key } from "../../../SECRETS";
 import axios from "axios";
+import { StoreContext } from "../../../Contexts/Store";
 
 const Squad = (props) => {
-  const [squad, setSquad] = useState(null);
+  const [squad, setSquad] = useState([]);
   const team_id = props.match.params.id;
   const season = "2020";
-  const teamLogo = `https://media.api-sports.io/football/teams/${team_id}.png`;
+  const store = useContext(StoreContext);
+
+  const showPlayer = (e) => {
+    store.setPopup(true);
+    store.setActivePlayer(e.target.id);
+  };
 
   useEffect(() => {
     const squadOptions = {
@@ -28,12 +34,20 @@ const Squad = (props) => {
       }
     };
 
-    getSquad().then((response) => setSquad(response.data.api));
+    getSquad().then((response) => setSquad(response.data.api.players));
   }, [team_id]);
 
-  return <div className={classes.Container}></div>;
+  const team = squad.map((player) => {
+    return (
+      <li>
+        <p onClick={showPlayer} id={player.player_id}>
+          {player.firstname} + {player.lastname}
+        </p>
+      </li>
+    );
+  });
+
+  return <ul className={classes.Container}>{team}</ul>;
 };
 
 export default Squad;
-
-// API doesn't have very good coverage of squads - review later

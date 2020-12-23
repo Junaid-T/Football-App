@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Fixture = (props) => {
   const store = useContext(StoreContext);
 
-  // This allows me to have a different "mode" for fixtures so that I can use it for individual teams.
+  // This allows me to have a different "mode" for fixtures componant so that I can reuse it for individual teams.
   let data;
   if (props.type === "Main") {
     data = store.fixtures;

@@ -14,9 +14,7 @@ const DetailedFixture = (props) => {
   useEffect(() => {
     const fixtureRequest = {
       method: "GET",
-      url:
-        // Need to make dynamic afterwards using props.fixture_id
-        `https://api-football-v1.p.rapidapi.com/v2/fixtures/id/${id}`,
+      url: `https://api-football-v1.p.rapidapi.com/v2/fixtures/id/${id}`,
       headers: {
         "x-rapidapi-key": "a0272a4936mshf37852dcde693bcp1dbf3bjsn0feda5ecaac5",
       },
@@ -25,7 +23,7 @@ const DetailedFixture = (props) => {
     const getFixture = async function () {
       try {
         const response = await axios.request(fixtureRequest);
-        console.log(response);
+
         return response;
       } catch (error) {
         console.log(error);

@@ -1,6 +1,6 @@
 import "./App.css";
 import { useContext } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { StoreContext } from "./Contexts/Store";
 import NavBar from "./Components/NavBar/NavBar";
@@ -11,7 +11,6 @@ import Player from "./Containers/Player/Player";
 import Team from "./Containers/Team/Team";
 import FixtureFull from "./Containers/DetailedFixture/DetailedFixture";
 import Results from "./Containers/Results/Results";
-import Squad from "./Containers/Team/Squad/Squad";
 
 function App() {
   const store = useContext(StoreContext);
@@ -19,13 +18,14 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <NavBar />
-        <Route path="/" exact component={Main} />
-        <Route path="/table" component={Table} />
-        <Route path="/topscorers" component={Statistics} />
-        <Route path="/team/:id" exact component={Team} />
-        <Route path="/team/:id/squad" component={Squad} />
-        <Route path="/fixture/:fixture" component={FixtureFull} />
-        <Route path="/results" component={Results} />
+        <Switch>
+          <Route path="/" exact component={Main} />
+          <Route path="/table" component={Table} />
+          <Route path="/topscorers" component={Statistics} />
+          <Route path="/team/:id" component={Team} />
+          <Route path="/fixture/:fixture" component={FixtureFull} />
+          <Route path="/results" component={Results} />
+        </Switch>
       </BrowserRouter>
       {store.popup ? <Player /> : null}
     </div>

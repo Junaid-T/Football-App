@@ -17,6 +17,10 @@
   align-items: center;
 }
 
+.Team:hover {
+  background-color: rgb(110, 107, 107);
+}
+
 .Rank,
 .Points,
 .Played,

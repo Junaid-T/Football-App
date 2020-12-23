@@ -1,7 +1,7 @@
 .Container {
   height: 85%;
   width: 100%;
-  padding-top: 3%;
+  padding-top: 1%;
 }
 
 .Image {
@@ -11,6 +11,7 @@
 .TeamView {
   width: 35%;
   height: 8%;
+  background-color: yellow;
   display: flex;
   float: left;
   justify-content: space-around;
