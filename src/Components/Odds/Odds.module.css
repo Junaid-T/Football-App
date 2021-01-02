@@ -1,0 +1,39 @@
+.Container {
+  height: 38%;
+  width: 45%;
+  position: absolute;
+  bottom: 2.5%;
+  left: 2%;
+  background-color: rgb(180, 178, 178);
+}
+
+.Header {
+  font-size: 28px;
+}
+
+.Bookmakers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 80%;
+  width: 90%;
+  overflow: scroll;
+  margin: 3% auto 0;
+}
+
+.Bookmakers::-webkit-scrollbar {
+  display: none;
+}
+
+.Bookmaker {
+  height: 30%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.Bookmaker:hover {
+  background-color: grey;
+}

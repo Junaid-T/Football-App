@@ -24,34 +24,41 @@ const Fixture = (props) => {
 
   const fixturesList = data.map((fixture) => {
     return (
-      <div key={fixture.fixture_id} className={classes.FixturesContainer}>
-        <img
-          src={fixture.homeTeam.logo}
-          alt={`${fixture.homeTeam.team_name} logo`}
-          className={classes.TeamLogos}
-        />
-        <Link
-          to={`/fixture/${fixture.fixture_id}`}
-          id={fixture.fixture_id}
-          className={classes.Fixture}
-        >
-          {fixture.homeTeam.team_name}
-          <br />
-          Vs
-          <br />
-          {fixture.awayTeam.team_name}
-        </Link>
-        <img
-          src={fixture.awayTeam.logo}
-          alt={`${fixture.awayTeam.team_name} logo`}
-          className={classes.TeamLogos}
-        />
-        <p>{formatDate(fixture.event_date)}</p>
+      <div key={fixture.fixture_id} className={classes.FixtureContainer}>
+        <div className={classes.Teams}>
+          <img
+            src={fixture.homeTeam.logo}
+            alt={`${fixture.homeTeam.team_name} logo`}
+            className={classes.TeamLogos}
+          />
+          <Link
+            to={`/fixture/${fixture.fixture_id}`}
+            id={fixture.fixture_id}
+            className={classes.Fixture}
+          >
+            {fixture.homeTeam.team_name}
+            <br />
+            Vs
+            <br />
+            {fixture.awayTeam.team_name}
+          </Link>
+          <img
+            src={fixture.awayTeam.logo}
+            alt={`${fixture.awayTeam.team_name} logo`}
+            className={classes.TeamLogos}
+          />
+        </div>
+        <p className={classes.Date}>{formatDate(fixture.event_date)}</p>
       </div>
     );
   });
 
-  return <div className={classes.Container}>{fixturesList}</div>;
+  return (
+    <div className={classes.Container}>
+      <div className={classes.Header}>Upcoming Games</div>
+      <div className={classes.Games}>{fixturesList}</div>
+    </div>
+  );
 };
 
 export default Fixture;

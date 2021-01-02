@@ -8,3 +8,15 @@
   bottom: 10%;
   box-shadow: 4px 4px 10px grey;
 }
+
+.Name {
+  margin: 2% 0;
+}
+
+.Team {
+  margin-bottom: 2%;
+}
+
+.Container p {
+  margin-bottom: 1%;
+}

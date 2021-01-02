@@ -1,0 +1,52 @@
+.Container {
+  height: 85%;
+  width: 100%;
+  padding-top: 3%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Container div {
+  height: 90%;
+  width: 20%;
+  padding: 0;
+}
+
+.GoalkeeperContainer {
+  background-color: rgba(44, 194, 44, 0.7);
+}
+.DefenderContainer {
+  background-color: rgb(127, 127, 250, 0.7);
+}
+.MidfieldersContainer {
+  background-color: rgb(240, 193, 107, 0.7);
+}
+.AttackersContainer {
+  background-color: rgb(236, 78, 78, 0.7);
+}
+
+.Header {
+  margin-bottom: 2%;
+}
+
+.PlayersContainer {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow-y: scroll;
+}
+.PlayersContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.Player {
+  margin-bottom: 5%;
+  font-size: 1.3vw;
+  letter-spacing: 1px;
+}
+
+.Player:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

@@ -11,7 +11,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  font-size: 40px;
+  font-size: 3vw;
 }
 
 .MatchHeader h2 {
@@ -25,7 +25,6 @@
   margin: 0 auto;
   display: flex;
   position: relative;
-  top: 3%;
   z-index: 10;
 }
 

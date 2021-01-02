@@ -13,7 +13,7 @@ const TableFull = () => {
         <div key={team.team_id} className={classes.Team}>
           <p className={classes.Rank}>{team.rank}</p>
           <Link to={`/team/${team.team_id}`} className={classes.Name}>
-            {team.teamName}
+            <h5>{team.teamName}</h5>
           </Link>
           <p className={classes.Played}>{team.all.matchsPlayed}</p>
           <p className={classes.Played}>{team.all.win}</p>
@@ -31,18 +31,18 @@ const TableFull = () => {
   return (
     <div className={classes.Container}>
       <div className={classes.Team}>
-        <p className={classes.Rank}>Position</p>
-        <p className={classes.Name}>Team</p>
-        <p className={classes.Played}>Played</p>
-        <p className={classes.Played}>W</p>
-        <p className={classes.Played}>D</p>
-        <p className={classes.Played}>L</p>
-        <p className={classes.Difference}>GD</p>
-        <p className={classes.Difference}>GF</p>
-        <p className={classes.Difference}>GA</p>
-        <p className={classes.Points}>Points</p>
+        <div className={classes.Rank}>Position</div>
+        <h4 className={classes.Name}>Team</h4>
+        <div className={classes.Played}>Played</div>
+        <div className={classes.Played}>W</div>
+        <div className={classes.Played}>D</div>
+        <div className={classes.Played}>L</div>
+        <div className={classes.Difference}>GD</div>
+        <div className={classes.Difference}>GF</div>
+        <div className={classes.Difference}>GA</div>
+        <div className={classes.Points}>Points</div>
       </div>
-      {table}
+      <ul>{table}</ul>
     </div>
   );
 };

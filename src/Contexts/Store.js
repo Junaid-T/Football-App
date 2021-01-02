@@ -1,107 +1,55 @@
 import React, { useState, useEffect, createContext } from "react";
-import axios from "axios";
-import { API_key } from "../SECRETS";
+import getData from "../helper";
 
 export const StoreContext = createContext();
 
 export const StoreProvider = (props) => {
   const [popup, setPopup] = useState(false);
-  const [activePlayer, setActivePlayer] = useState(null); // USE FOR PLAYER & TEAM - SET THOSE SEPARATE TO POP- REUSE
+  const [activePlayer, setActivePlayer] = useState(null);
   const [leagueTable, setLeagueTable] = useState([]);
   const [topScorers, setTopScorers] = useState([]);
   const [fixtures, setFixtures] = useState([]);
+  const [bookmakers, setBookmakers] = useState(null);
 
   // Get the Standings
   useEffect(() => {
-    const leagueOptions = {
-      method: "GET",
-      url: "https://api-football-v1.p.rapidapi.com/v2/leagueTable/2790",
-      headers: {
-        "x-rapidapi-key": `${API_key}`,
-      },
-    };
+    //Standings
+    getData(
+      "https://api-football-v1.p.rapidapi.com/v2/leagueTable/2790"
+    ).then((response) => setLeagueTable(response.data.api.standings[0]));
 
-    const getLeague = async function () {
-      try {
-        const response = await axios.request(leagueOptions);
-        return response;
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    // Scorers
+    getData(
+      "https://api-football-v1.p.rapidapi.com/v2/topscorers/2790"
+    ).then((response) => setTopScorers(response.data.api.topscorers));
 
-    getLeague().then((response) =>
-      setLeagueTable(response.data.api.standings[0])
-    );
-    /////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////
-  }, []);
+    // Fixtures
+    getData(
+      "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2790/next/10"
+    ).then((response) => setFixtures(response.data.api.fixtures));
 
-  // Get the Top Scorers
-  useEffect(() => {
-    const scorersOptions = {
-      method: "GET",
-      url: "https://api-football-v1.p.rapidapi.com/v2/topscorers/2790",
-      headers: {
-        "x-rapidapi-key": `${API_key}`,
-      },
-    };
-
-    const getScorers = async function () {
-      try {
-        const response = await axios.request(scorersOptions);
-        return response;
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getScorers().then((response) =>
-      setTopScorers(response.data.api.topscorers)
-    );
-  }, []);
-
-  // Get Fixtures
-  useEffect(() => {
-    const fixtureOptions = {
-      method: "GET",
-      url:
-        "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2790/next/10",
-      headers: {
-        "x-rapidapi-key": `${API_key}`,
-      },
-    };
-
-    const getFixtures = async function () {
-      try {
-        const response = await axios.request(fixtureOptions);
-        return response;
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getFixtures().then((response) => setFixtures(response.data.api.fixtures));
+    // Bookmakers
+    getData(
+      "https://api-football-v1.p.rapidapi.com/v2/odds/bookmakers/"
+    ).then((response) => setBookmakers(response.data.api.bookmakers));
   }, []);
 
   return (
     <StoreContext.Provider
       value={{
-        popup: popup,
-        setPopup: setPopup,
-        activePlayer: activePlayer,
-        setActivePlayer: setActivePlayer,
-        leagueTable: leagueTable,
-        setLeagueTable: setLeagueTable,
-        topScorers: topScorers,
-        setTopScorers: setTopScorers,
-        fixtures: fixtures,
+        popup,
+        setPopup,
+        activePlayer,
+        setActivePlayer,
+        leagueTable,
+        setLeagueTable,
+        topScorers,
+        setTopScorers,
+        fixtures,
+        bookmakers,
       }}
     >
       {props.children}
     </StoreContext.Provider>
   );
 };
-
-///////////
-/////////// TO SELF - MAYBE COMBINE THE USEEFFECTS

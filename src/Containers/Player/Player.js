@@ -1,9 +1,8 @@
 import React, { useEffect, useState, Fragment, useContext } from "react";
 import classes from "./Player.module.css";
-import axios from "axios";
-import { API_key } from "../../SECRETS";
 import Backdrop from "../../Components/UX/Backdrop/Backdrop";
 import { StoreContext } from "../../Contexts/Store";
+import getData from "../../helper";
 
 const Player = (props) => {
   const store = useContext(StoreContext);
@@ -11,33 +10,20 @@ const Player = (props) => {
   const [player, setPlayer] = useState(null);
   // Fetch the player data
   useEffect(() => {
-    const playerOptions = {
-      method: "GET",
-      url: `https://api-football-v1.p.rapidapi.com/v2/players/player/${id}`,
-      headers: {
-        "x-rapidapi-key": `${API_key}`,
-      },
-    };
-
-    const getPlayer = async function () {
-      try {
-        const response = await axios.request(playerOptions);
-        return response;
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getPlayer().then((response) => setPlayer(response.data.api.players[0]));
+    getData(
+      `https://api-football-v1.p.rapidapi.com/v2/players/player/${id}`
+    ).then((response) => setPlayer(response.data.api.players[0]));
   }, [id]);
 
   let playerInfo = null;
   if (player) {
     playerInfo = (
       <div>
-        <h3>{player.firstname + " " + player.lastname}</h3>
-        <h4>{player.team_name}</h4>
-        <p>{player.ationaity}</p>
+        <h3 className={classes.Name}>
+          {player.firstname + " " + player.lastname}
+        </h3>
+        <h4 className={classes.Team}>{player.team_name}</h4>
+        <p>{player.nationality}</p>
         <p>{player.height}</p>
         <p>{player.weight}</p>
         <p>Played: {player.games.appearences}</p>

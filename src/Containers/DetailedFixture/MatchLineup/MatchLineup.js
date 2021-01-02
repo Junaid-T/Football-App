@@ -3,8 +3,6 @@ import classes from "./MatchLineup.module.css";
 import shirt from "../../../Assets/shirt-outline.svg";
 import { StoreContext } from "../../../Contexts/Store";
 
-// FIX SHIRT COLOR
-
 const MatchLineup = (props) => {
   const store = useContext(StoreContext);
   const data = props.data;

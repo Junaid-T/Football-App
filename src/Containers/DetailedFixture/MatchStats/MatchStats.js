@@ -27,7 +27,7 @@ const MatchStats = (props) => {
 
   return (
     <Fragment>
-      <h4 style={{ marginBottom: "1%" }}>{data.elapsed}'</h4>
+      <h4 style={{ marginTop: "2%" }}>{data.elapsed}'</h4>
       <div className={classes.Stat}>
         <h4>Possession</h4>
         {data.statistics["Ball Possession"].home}{" "}

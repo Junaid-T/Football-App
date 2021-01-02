@@ -8,24 +8,26 @@ const Scorers = () => {
 
   const showPlayer = (e) => {
     store.setPopup(true);
-    store.setActivePlayer(e.target.parentElement.id);
+    store.setActivePlayer(e.target.id);
   };
 
   const top5 = store.topScorers.map((player, index) => {
     while (index < 5) {
       return (
-        <div
-          className={classes.PlayerContainer}
-          key={player.player_id}
-          id={player.player_id}
-        >
-          <h4 onClick={showPlayer}>
-            {player.firstname + " " + player.lastname}
-          </h4>
-          <Link to={`/team/${player.team_id}`} className={classes.Link}>
-            <h5>{player.team_name}</h5>
-          </Link>
-          <div>{player.goals.total}</div>
+        <div className={classes.PlayerContainer} key={player.player_id}>
+          <div className={classes.NameAndTeam}>
+            <h4
+              className={classes.Name}
+              onClick={showPlayer}
+              id={player.player_id}
+            >
+              {player.firstname + " " + player.lastname}
+            </h4>
+            <Link to={`/team/${player.team_id}`} className={classes.Link}>
+              <h5>{player.team_name}</h5>
+            </Link>
+          </div>
+          <div className={classes.Goals}>{player.goals.total}</div>
         </div>
       );
     }
@@ -34,7 +36,7 @@ const Scorers = () => {
 
   return (
     <div className={classes.Container}>
-      Top Scorers
+      <h4>Top Scorers</h4>
       {top5}
     </div>
   );

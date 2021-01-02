@@ -1,6 +1,7 @@
 .Container {
+  font-size: 1.4vw;
   height: 80%;
-  width: 96%;
+  width: 90%;
   margin: 1% auto;
   display: flex;
   flex-direction: column;
@@ -8,9 +9,14 @@
   align-items: center;
 }
 
+.Header {
+  font-size: 2.5vw;
+  margin-bottom: 1%;
+}
+
 .Match {
   height: 8%;
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: 0.3%;
@@ -27,7 +33,7 @@
 
 .Link {
   color: black;
-  width: 70%;
+  width: 60%;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -41,4 +47,10 @@
 .TeamName {
   width: 25%;
   text-align: center;
+}
+
+@media screen and (max-width: 650px) {
+  .Match {
+    font-size: 2vw;
+  }
 }

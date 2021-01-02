@@ -1,39 +1,18 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Results.module.css";
-import { API_key } from "../../SECRETS";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import getData from "../../helper";
 
 const Results = (props) => {
   const [results, setResults] = useState(null);
-  console.log(props.match.params.id);
   const id = props.match.params.id ? props.match.params.id : null;
   const url = props.match.params.id
     ? `https://api-football-v1.p.rapidapi.com/v2/fixtures/team/${id}/last/10`
     : `https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2790/last/10`;
+
   useEffect(() => {
-    const resultsOptions = {
-      method: "GET",
-      //url: `https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2790/last/10`,
-      url: url,
-      headers: {
-        "x-rapidapi-key": `${API_key}`,
-      },
-    };
-
-    const getFixtures = async function () {
-      try {
-        const response = await axios.request(resultsOptions);
-        return response;
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getFixtures().then((response) => setResults(response.data.api.fixtures));
-    /////////////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////////////
-  }, []);
+    getData(url).then((response) => setResults(response.data.api.fixtures));
+  }, [url]);
 
   let displayResults = null;
   if (results) {
@@ -54,7 +33,14 @@ const Results = (props) => {
     });
   }
 
-  return <ul className={classes.Container}>{displayResults}</ul>;
+  return (
+    <ul className={classes.Container}>
+      <li className={classes.Header}>
+        <strong>Latest Results</strong>
+      </li>
+      {displayResults}
+    </ul>
+  );
 };
 
 export default Results;

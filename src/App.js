@@ -11,6 +11,7 @@ import Player from "./Containers/Player/Player";
 import Team from "./Containers/Team/Team";
 import FixtureFull from "./Containers/DetailedFixture/DetailedFixture";
 import Results from "./Containers/Results/Results";
+import BookmakerFull from "./Containers/BookmakerFull/BookmakerFull";
 
 function App() {
   const store = useContext(StoreContext);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/team/:id" component={Team} />
           <Route path="/fixture/:fixture" component={FixtureFull} />
           <Route path="/results" component={Results} />
+          <Route path="/bookmaker/:bookmaker_id" component={BookmakerFull} />
         </Switch>
       </BrowserRouter>
       {store.popup ? <Player /> : null}

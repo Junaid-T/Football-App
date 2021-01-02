@@ -1,7 +1,6 @@
 .Container {
   height: 80%;
-  width: 20%;
-  border: 2px black solid;
+  width: 23%;
   box-shadow: 4px 4px grey 2px;
   float: right;
   position: absolute;
@@ -9,18 +8,18 @@
   right: 2%;
   box-sizing: border-box;
   padding: 0%;
+  background-color: rgb(180, 178, 178);
 }
 
 .Team {
   box-sizing: border-box;
   padding: 0%;
-  font-size: 80%;
+  font-size: 1vw;
   display: flex;
   width: 100%;
   height: 4.44%;
   margin-bottom: 0.6%;
   justify-content: space-around;
-  border-bottom: 1px grey dashed;
 
   align-items: center;
 }
@@ -40,4 +39,37 @@
 
 .Name:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 1050px) {
+  .Container {
+    width: 27%;
+  }
+  .Team {
+    font-size: 1.2vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .Container {
+    width: 35%;
+  }
+  .Team {
+    font-size: 1.4vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .Team {
+    font-size: 1.9vw;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Container {
+    width: 40%;
+  }
+  .Team {
+    font-size: 2vw;
+  }
 }

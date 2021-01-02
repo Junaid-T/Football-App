@@ -1,24 +1,34 @@
 .Container {
   height: 80%;
   width: 96%;
-  border: 2px black solid;
+  background-color: rgb(180, 178, 178);
   margin: 1% auto;
+}
+
+.Container ul {
+  height: 91%;
+  margin-top: 2%;
 }
 
 .Team {
   box-sizing: border-box;
-  padding: 0%;
-  font-size: 120%;
+  font-size: 1.4vw;
   display: flex;
   width: 100%;
-  height: 3.3%;
-  margin-bottom: 0.6%;
+  height: 4.2%;
+  margin-bottom: 0.3%;
   justify-content: space-around;
   align-items: center;
 }
 
 .Team:hover {
   background-color: rgb(110, 107, 107);
+}
+
+.Team div,
+.Team h4 {
+  border-bottom: 3px solid black;
+  font-size: 2vw;
 }
 
 .Rank,
@@ -35,4 +45,14 @@
 
 .Name:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 1100px) {
+  .Team {
+    font-size: 2vw;
+  }
+  .Team div,
+  .Team h4 {
+    font-size: 2vw;
+  }
 }

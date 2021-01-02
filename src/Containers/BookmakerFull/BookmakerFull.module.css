@@ -1,0 +1,60 @@
+.Container {
+  height: 80%;
+  width: 90%;
+  margin: 1% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.BookmakersContainer {
+  display: flex;
+  width: 100%;
+  margin-bottom: auto;
+  height: 15%;
+  flex-wrap: wrap;
+  background-color: green;
+}
+
+.Bookmaker {
+  height: 30px;
+  min-width: 90px;
+  margin: auto;
+  padding: 0 2px;
+}
+
+.FixturesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 85%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 10%;
+  background-color: yellow;
+}
+
+.Fixture {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.TeamLogo {
+  height: 30px;
+  width: 30px;
+}
+
+.OddsContainer {
+  height: 85%;
+  width: 90%;
+  position: relative;
+  left: 5%;
+  bottom: 0;
+  background-color: blue;
+}

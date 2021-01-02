@@ -2,10 +2,16 @@
   height: 85%;
   width: 100%;
   padding-top: 1%;
+  position: relative;
 }
 
 .Image {
   margin-bottom: 2%;
+}
+
+.FixtureContainer {
+  position: relative;
+  top: 8%;
 }
 
 .TeamView {
