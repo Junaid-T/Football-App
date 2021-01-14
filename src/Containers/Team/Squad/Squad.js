@@ -39,23 +39,37 @@ const Squad = (props) => {
   const midfielders = filterPositions("Midfielder");
   const attackers = filterPositions("Attacker");
 
+  const errorMessage = (
+    <h3>
+      We couldn't find any players for this postion, please check back later
+    </h3>
+  );
+
   return (
     <div className={classes.Container}>
       <div className={classes.GoalkeeperContainer}>
         <h4 className={classes.Header}>Goalkeepers</h4>
-        <ul className={classes.PlayersContainer}>{goalkeepers}</ul>
+        <ul className={classes.PlayersContainer}>
+          {goalkeepers.length ? goalkeepers : errorMessage}
+        </ul>
       </div>
       <div className={classes.DefenderContainer}>
         <h4 className={classes.Header}>Defenders</h4>
-        <ul className={classes.PlayersContainer}>{defenders}</ul>
+        <ul className={classes.PlayersContainer}>
+          {defenders.length ? defenders : errorMessage}
+        </ul>
       </div>
       <div className={classes.MidfieldersContainer}>
         <h4 className={classes.Header}>Midfielders</h4>
-        <ul className={classes.PlayersContainer}>{midfielders}</ul>
+        <ul className={classes.PlayersContainer}>
+          {midfielders.length ? midfielders : errorMessage}
+        </ul>
       </div>
       <div className={classes.AttackersContainer}>
         <h4 className={classes.Header}>Attackers</h4>
-        <ul className={classes.PlayersContainer}>{attackers}</ul>
+        <ul className={classes.PlayersContainer}>
+          {attackers.length ? attackers : errorMessage}
+        </ul>
       </div>
     </div>
   );

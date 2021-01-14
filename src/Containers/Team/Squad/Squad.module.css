@@ -13,16 +13,20 @@
 }
 
 .GoalkeeperContainer {
-  background-color: rgba(44, 194, 44, 0.7);
+  background-color: rgba(44, 194, 44, 0.3);
+  border: 2px solid rgba(44, 194, 44, 0.7);
 }
 .DefenderContainer {
-  background-color: rgb(127, 127, 250, 0.7);
+  background-color: rgb(127, 127, 250, 0.3);
+  border: 2px solid rgb(127, 127, 250, 0.7);
 }
 .MidfieldersContainer {
-  background-color: rgb(240, 193, 107, 0.7);
+  background-color: rgb(240, 193, 107, 0.3);
+  border: 2px solid rgb(240, 193, 107, 0.7);
 }
 .AttackersContainer {
-  background-color: rgb(236, 78, 78, 0.7);
+  background-color: rgb(236, 78, 78, 0.3);
+  border: 2px solid rgb(236, 78, 78, 0.7);
 }
 
 .Header {

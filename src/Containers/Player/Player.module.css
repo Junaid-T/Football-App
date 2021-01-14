@@ -1,22 +1,22 @@
 .Container {
   height: 80%;
-  width: 80%;
+  width: 50%;
   z-index: 20;
   background-color: lightblue;
   position: absolute;
-  left: 10%;
+  left: 25%;
   bottom: 10%;
   box-shadow: 4px 4px 10px grey;
 }
 
 .Name {
-  margin: 2% 0;
+  margin: 3% 0;
 }
 
 .Team {
-  margin-bottom: 2%;
+  margin-bottom: 3%;
 }
 
 .Container p {
-  margin-bottom: 1%;
+  margin-bottom: 2%;
 }

@@ -11,11 +11,18 @@
 
 .BookmakersContainer {
   display: flex;
-  width: 100%;
+  width: 90%;
   margin-bottom: auto;
   height: 15%;
   flex-wrap: wrap;
-  background-color: green;
+  border-bottom: 3px solid grey;
+  position: relative;
+  left: 4.8%;
+  overflow: scroll;
+}
+
+.BookmakersContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .Bookmaker {
@@ -23,6 +30,18 @@
   min-width: 90px;
   margin: auto;
   padding: 0 2px;
+  cursor: pointer;
+}
+.BookmakerActive {
+  height: 30px;
+  min-width: 90px;
+  margin: auto;
+  padding: 0 2px;
+  background-color: grey;
+}
+
+.Bookmaker:hover {
+  background-color: grey;
 }
 
 .FixturesContainer {
@@ -34,7 +53,7 @@
   left: 0;
   bottom: 0;
   width: 10%;
-  background-color: yellow;
+  border-right: 3px solid grey;
 }
 
 .Fixture {
@@ -43,6 +62,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+}
+
+.FixtureActive {
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: grey;
+}
+
+.Fixture:hover {
+  background-color: grey;
 }
 
 .TeamLogo {
@@ -56,5 +90,20 @@
   position: relative;
   left: 5%;
   bottom: 0;
-  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1000px) {
+  .OddsContainer {
+    height: 80%;
+    width: 15%;
+  }
+  .FixturesContainer {
+    width: 15%;
+  }
+  .BookmakersContainer {
+    left: 9.5%;
+  }
 }

@@ -9,7 +9,11 @@ const Odds = () => {
   if (store.bookmakers) {
     bookmakers = store.bookmakers.map((bookmaker) => {
       return (
-        <Link to={`/bookmaker/${bookmaker.id}`} className={classes.Bookmaker}>
+        <Link
+          to={`/bookmaker/${bookmaker.id}`}
+          className={classes.Bookmaker}
+          key={bookmaker.id}
+        >
           {bookmaker.name}
         </Link>
       );
@@ -19,7 +23,7 @@ const Odds = () => {
   return (
     <div className={classes.Container}>
       <div className={classes.Header}>
-        Check out what odds we have available with
+        Check out what odds we have available
       </div>
       <div className={classes.Bookmakers}>{bookmakers}</div>
     </div>

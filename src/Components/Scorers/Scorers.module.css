@@ -18,6 +18,9 @@
   height: 15%;
   display: flex;
   margin-bottom: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .NameAndTeam {
@@ -59,22 +62,33 @@
 
 @media screen and (max-width: 1050px) {
   .Container {
+    left: 46%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Container {
     left: 47%;
   }
   .Goals {
     font-size: 16px;
   }
   .NameAndTeam {
-    font-size: 12px;
+    font-size: 10px;
+  }
+  .PlayerContainer {
+    height: 17%;
+  }
+  .Goals {
+    width: 20%;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
   .Goals {
     font-size: 16px;
   }
   .NameAndTeam {
-    font-size: 12px;
   }
 }
 @media screen and (max-width: 800px) {

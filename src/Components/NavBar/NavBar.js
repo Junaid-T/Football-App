@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./NavBar.module.css";
 import Logo from "../../Assets/football-outline.svg";
+//import Logo from "../../Assets/Logos/logo_transparent.png";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
